@@ -2,7 +2,7 @@
 # Project setup
 ########################################################################
 cmake_minimum_required(VERSION 2.6)
-project(Theron CXX)
+project(Theron6 CXX)
 enable_testing()
 
 #select the release build type by default to get optimization flags
