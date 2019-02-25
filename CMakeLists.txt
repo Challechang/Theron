@@ -24,7 +24,7 @@ add_definitions(${THERON_DEFINES})
 ########################################################################
 # Build library
 ########################################################################
-add_library(theron STATIC ${THERON_SOURCES})
+add_library(theron SHARED ${THERON_SOURCES})
 target_link_libraries(theron ${THERON_LIBRARIES})
 set_target_properties(theron PROPERTIES VERSION "6.00.02")
 

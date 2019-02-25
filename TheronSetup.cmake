@@ -58,30 +58,30 @@ endif(MSVC)
 ########################################################################
 # Find and setup Boost Threads
 ########################################################################
-if(UNIX AND NOT BOOST_ROOT AND EXISTS "/usr/lib64" AND NOT BOOST_LIBRARYDIR)
-    list(APPEND BOOST_LIBRARYDIR "/usr/lib64") #fedora 64-bit fix
-endif(UNIX AND NOT BOOST_ROOT AND EXISTS "/usr/lib64" AND NOT BOOST_LIBRARYDIR)
-
-set(Boost_ADDITIONAL_VERSIONS
-    "1.35.0" "1.35" "1.36.0" "1.36" "1.37.0" "1.37" "1.38.0" "1.38" "1.39.0" "1.39"
-    "1.40.0" "1.40" "1.41.0" "1.41" "1.42.0" "1.42" "1.43.0" "1.43" "1.44.0" "1.44"
-    "1.45.0" "1.45" "1.46.0" "1.46" "1.47.0" "1.47" "1.48.0" "1.48" "1.49.0" "1.49"
-    "1.50.0" "1.50" "1.51.0" "1.51" "1.52.0" "1.52" "1.53.0" "1.53" "1.54.0" "1.54"
-    "1.55.0" "1.55" "1.56.0" "1.56" "1.57.0" "1.57" "1.58.0" "1.58" "1.59.0" "1.59"
-    "1.60.0" "1.60" "1.61.0" "1.61" "1.62.0" "1.62" "1.63.0" "1.63" "1.64.0" "1.64"
-    "1.65.0" "1.65" "1.66.0" "1.66" "1.67.0" "1.67" "1.68.0" "1.68" "1.69.0" "1.69"
-)
-find_package(Boost COMPONENTS thread system)
-
-if(Boost_FOUND)
-    list(APPEND THERON_INCLUDE_DIRS ${Boost_INCLUDE_DIRS})
-    list(APPEND THERON_LIBRARY_DIRS ${Boost_LIBRARY_DIRS})
-    list(APPEND THERON_LIBRARIES ${Boost_LIBRARIES})
-    list(APPEND THERON_DEFINES -DTHERON_BOOST=1)
-    if(${Boost_VERSION} LESS 104200)
-        list(APPEND THERON_DEFINES "-Dmemory_order_consume=memory_order(8)")
-    endif()
-endif()
+#if(UNIX AND NOT BOOST_ROOT AND EXISTS "/usr/lib64" AND NOT BOOST_LIBRARYDIR)
+#    list(APPEND BOOST_LIBRARYDIR "/usr/lib64") #fedora 64-bit fix
+#endif(UNIX AND NOT BOOST_ROOT AND EXISTS "/usr/lib64" AND NOT BOOST_LIBRARYDIR)
+#
+#set(Boost_ADDITIONAL_VERSIONS
+#    "1.35.0" "1.35" "1.36.0" "1.36" "1.37.0" "1.37" "1.38.0" "1.38" "1.39.0" "1.39"
+#    "1.40.0" "1.40" "1.41.0" "1.41" "1.42.0" "1.42" "1.43.0" "1.43" "1.44.0" "1.44"
+#    "1.45.0" "1.45" "1.46.0" "1.46" "1.47.0" "1.47" "1.48.0" "1.48" "1.49.0" "1.49"
+#    "1.50.0" "1.50" "1.51.0" "1.51" "1.52.0" "1.52" "1.53.0" "1.53" "1.54.0" "1.54"
+#    "1.55.0" "1.55" "1.56.0" "1.56" "1.57.0" "1.57" "1.58.0" "1.58" "1.59.0" "1.59"
+#    "1.60.0" "1.60" "1.61.0" "1.61" "1.62.0" "1.62" "1.63.0" "1.63" "1.64.0" "1.64"
+#    "1.65.0" "1.65" "1.66.0" "1.66" "1.67.0" "1.67" "1.68.0" "1.68" "1.69.0" "1.69"
+#)
+#find_package(Boost COMPONENTS thread system)
+#
+#if(Boost_FOUND)
+#    list(APPEND THERON_INCLUDE_DIRS ${Boost_INCLUDE_DIRS})
+#    list(APPEND THERON_LIBRARY_DIRS ${Boost_LIBRARY_DIRS})
+#    list(APPEND THERON_LIBRARIES ${Boost_LIBRARIES})
+#    list(APPEND THERON_DEFINES -DTHERON_BOOST=1)
+#    if(${Boost_VERSION} LESS 104200)
+#        list(APPEND THERON_DEFINES "-Dmemory_order_consume=memory_order(8)")
+#    endif()
+#endif()
 
 ########################################################################
 # Find and setup PThreads
@@ -98,13 +98,13 @@ endif()
 ########################################################################
 # Find and setup c++11
 ########################################################################
-include(CheckCXXCompilerFlag)
-CHECK_CXX_COMPILER_FLAG(-std=c++11 HAS_STD_CPP11)
-
-if(HAS_STD_CPP11)
-    list(APPEND THERON_DEFINES -DTHERON_CPP11=1)
-    list(APPEND THERON_DEFINES -std=c++11)
-endif()
+#include(CheckCXXCompilerFlag)
+#CHECK_CXX_COMPILER_FLAG(-std=c++11 HAS_STD_CPP11)
+#
+#if(HAS_STD_CPP11)
+#    list(APPEND THERON_DEFINES -DTHERON_CPP11=1)
+#    list(APPEND THERON_DEFINES -std=c++11)
+#endif()
 
 ########################################################################
 # Extra linux specific libraries
