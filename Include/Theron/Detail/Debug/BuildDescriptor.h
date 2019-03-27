@@ -79,7 +79,7 @@ inline void BuildDescriptor::Check()
         fprintf(stderr, "Client:  %s\n", inlineDescriptor);
         fprintf(stderr, "Library: %s\n", libraryDescriptor);
 
-        exit(1);
+//        exit(1);
     }
 
 #endif // THERON_ENABLE_BUILD_CHECKS
